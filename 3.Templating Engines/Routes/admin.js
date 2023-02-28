@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
 
 const router = express.Router();
 
@@ -8,18 +7,19 @@ const products = [];
 
 router.post('/product',(req,res,next) => {
     res.redirect('/');
-    let product = req.body.productName;    
+    let product = {
+        title:req.body.productName,
+        imageUrl:req.body.imageUrl
+    };    
     console.log(product);
     products.push(product);
-    fs.appendFile('products.txt',product, function(err) {
-        if(err) {
-            console.log(err);
-        }
-    });
+    console.log(products);
 })
 
 router.get('/add-product',(req,res,next) => {
-    res.sendFile(path.join(__dirname,'../','views','add-product.html'));
+    // res.sendFile(path.join(__dirname,'../','views','add-product.html'));
+    // res.send('Page under construction');
+    res.render('add-product');
 });
 
 exports.routes = router;

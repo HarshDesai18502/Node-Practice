@@ -31,3 +31,18 @@ header a {
 header a:hover {
     color: rgb(212, 212, 62);
 }
+
+main {
+    display: flex;
+}
+
+div {
+    border: solid black 1px;
+    margin: 10px;
+    text-align: center;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+}
