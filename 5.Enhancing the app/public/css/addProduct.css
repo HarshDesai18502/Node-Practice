@@ -31,14 +31,28 @@ body {
   header a:hover {
     color: rgb(212, 212, 62);
   }
+
+  form {
+     width: 12rem;
+     margin: auto;
+     align-items: center;
+     margin-top: 100px;
+     background-color: aliceblue;
+    padding: 30px;
+    
+     
+  }
   
   main {
     margin-top: 20px;
   }
 
+  label,input {
+     display: block;
+  }
  
 
-  input { 
+  input,textarea { 
     border: 1px solid rgb(92, 72, 163);;
   }
 
@@ -55,9 +69,7 @@ body {
     color: white;
   }
 
-  form {
-    text-align: center;
-  }
+ 
 
   ul { 
     list-style: none;
@@ -65,4 +77,8 @@ body {
 
   .active {
     color: yellow;
+}
+
+div {
+  margin-top: 10px;
 }

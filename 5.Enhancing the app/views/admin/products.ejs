@@ -23,10 +23,26 @@
     <main>
       <% if(prods.length > 0 ) {%> 
         <% for(product of prods) {%>
+          <div class="product_card">
             <div>
-                <img src=<%= product.imageUrl %> alt="">
-                <p><%= product.title%></p>
+              <p><%= product.title%></p>
             </div>
+            <div>
+              <img src=<%= product.imageUrl %> alt="">
+            </div>
+            <div>
+              <p>Price: <%= product.price %></p>
+              <form action="/admin/products/edit" method="POST">
+                <button>Edit</button>
+                <input type="hidden" name="productId" value="<%= product.id %>">
+              </form>
+              
+              <form action="/admin/delete">
+                <button>Delete</button>
+                <input type="hidden" name="productId" value="<%= product.id %>">
+              </form>
+            </div>
+          </div>
         <% }%> 
       <% } else {%>
             <h1>No products Found</h1>
