@@ -1,13 +1,20 @@
 
 const Product = require('../models/product');
+const Cart = require('../models/cart');
+
+const ApiError = require('../error/ApiError');
 
 //For Add-Product Page
 exports.getAddProduct = (req,res,next) => {
-    res.render('admin/add-product');
+    res.render('admin/add-product',{isLoggedIn:req.session.isLoggedIn});
 };
 
 exports.postAddProduct = (req,res,next) => {
     res.redirect('/products');
+    if(req.body.productName == "") {
+        next( ApiError.badRequest('Product title is necessary'));
+        return;
+    }
     let product = new Product(req.body.productName,req.body.imageUrl,req.body.price,req.body.description);
     product.save();
 }
@@ -40,13 +47,18 @@ exports.finishUpdate = async (req,res,next) => {
     res.redirect(`/products/${prodId}`);
 }
 
-// exports.deleteProduct = (req,res,next) => {
-//     let products = Product.fetchAll();
-//     let prodId= req.body.productId;
-//     console.log(prodId);
+exports.deleteProduct = (req,res,next) => {
+    let products = Product.fetchAll();
+    let prodId= req.body.productId;
 
-//     let index = products.findIndex(product => product.id == prodId);
-//     console.log(index);
+    
 
-//     res.redirect('/');
-// }
+    let index = products.findIndex(product => product.id == prodId);
+    Product.delete(index);
+
+    let cartItems = Cart.fetchAll();
+    index = cartItems.findIndex(product => product.id == prodId);
+    Cart.delete(index);
+
+    res.redirect('/admin/products');
+}

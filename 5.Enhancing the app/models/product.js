@@ -16,4 +16,8 @@ module.exports = class product {
     static fetchAll() {
         return products
     }
+
+    static delete(index) {
+        products.splice(index,1);
+    }
 }

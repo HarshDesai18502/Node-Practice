@@ -15,7 +15,8 @@
           <li><a href="/products">Products</a></li>
           <li><a href="/cart" >Cart</a></li>
           <li><a href="/admin/add-product" >Add Product</a></li>
-          <li><a href="/admin/products" class="active">Admin Products</a></li> 
+          <li><a href="/admin/products" class="active">Admin Products</a></li>
+          <li><a href="/login">Login</a></li>   
         </ul>
       </nav>
     </header>
@@ -37,7 +38,7 @@
                 <input type="hidden" name="productId" value="<%= product.id %>">
               </form>
               
-              <form action="/admin/delete">
+              <form action="/admin/delete" method="POST">
                 <button>Delete</button>
                 <input type="hidden" name="productId" value="<%= product.id %>">
               </form>

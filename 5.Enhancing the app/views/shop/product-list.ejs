@@ -14,8 +14,15 @@
           <li><a href="/" >Shop</a></li>
           <li><a href="/products" class="active">Products</a></li>
           <li><a href="/cart" >Cart</a></li>
-          <li><a href="/admin/add-product" >Add Product</a></li>
-          <li><a href="/admin/products">Admin Products</a></li> 
+          <% if(isLoggedIn == true) {%>
+            <li><a href="/admin/add-product">Add Product</a></li>
+            <li><a href="/admin/products">Admin Products</a></li>
+          <% } %>       
+          <% if(!isLoggedIn) {%>       
+            <li><a href="/login">Login</a></li>
+          <% } else {%> 
+            <li><a href="/logout">Logout</a></li>
+          <% } %> 
         </ul>
       </nav>
     </header>

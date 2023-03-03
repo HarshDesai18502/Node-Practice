@@ -11,8 +11,9 @@ header {
 
 header nav {
     height: 100%;
+    width: 100%;
     display: flex;
-    align-items: center;
+    justify-content: space-between;
 }
 
 header nav ul {
@@ -71,3 +72,4 @@ button {
     border-bottom: 1px solid #333333;
     border-left: 1px solid #CCCCCC;
 }
+
