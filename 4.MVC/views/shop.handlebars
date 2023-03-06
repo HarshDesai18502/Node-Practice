@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="/css/shop.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Shop</a></li>
+                <li><a href="/admin/add-product">Add Product</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        {{#if prods.length}}
+            {{#each prods}}
+                <div>
+                    <img src={{imageUrl}} alt="">
+                    <p>{{title}}</p>
+                </div>
+            {{/each}}
+            {{else}}
+                <h1>No Products Found.</h1>
+        {{/if}}
+        
+        
+    </main>
+</body>
+</html>
